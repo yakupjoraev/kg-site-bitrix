@@ -128,7 +128,7 @@ body.locked {
 }
 
 .experience__years {
-  max-width: 1292px;
+  max-width: 1340px;
   padding: 0 48px 48px;
 }
 
@@ -293,6 +293,7 @@ body.locked {
   -webkit-column-gap: 6px;
      -moz-column-gap: 6px;
           column-gap: 6px;
+  margin-left: auto;
 }
 
 .experience__team-exp {
@@ -689,10 +690,6 @@ body.locked {
 
   .experience__teams {
     grid-template-columns: repeat(1, 1fr);
-  }
-
-  .experience__team-exps {
-    margin-left: auto;
   }
 
   .anniversary__form-groups {

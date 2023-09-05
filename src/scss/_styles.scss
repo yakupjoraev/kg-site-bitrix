@@ -28,7 +28,7 @@
   // .experience__years
 
   &__years {
-    max-width: 1292px;
+    max-width: 1340px;
     padding: 0 48px 48px;
   }
 
@@ -231,10 +231,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 6px;
+    margin-left: auto;
 
-    @media (max-width: $breakpoint992) {
-      margin-left: auto;
-    }
   }
 
   // .experience__team-exp

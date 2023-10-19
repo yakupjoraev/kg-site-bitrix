@@ -130,11 +130,32 @@ body.locked {
   height: 100%;
   border-radius: 24px;
   background-color: #FFF;
+  cursor: pointer;
 }
 
-.business-analysts__card-container.card-border {
-  border: 5px solid #333;
-  border-radius: 30px;
+.business-analysts__card-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 5px solid transparent;
+  -webkit-transition: border 0.2s linear, border-radius 0.2s linear;
+  -o-transition: border 0.2s linear, border-radius 0.2s linear;
+  transition: border 0.2s linear, border-radius 0.2s linear;
+}
+
+.business-analysts__card-container:hover::before {
+  border-color: #D9D9D9;
+  border-radius: 24px;
+  z-index: 4;
+}
+
+.business-analysts__card-container.active::before {
+  border-color: #333;
+  border-radius: 24px;
+  z-index: 4;
 }
 
 .business-analysts__card-star {
@@ -325,9 +346,29 @@ body.locked {
 /*//////////////////////////////////////////////////////////*/
 
 .info-projects {
-  padding: 32px;
+  width: 100%;
+  padding: 0;
   border-radius: 24px;
   background-color: #333;
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transform: translateY(-40px) scale(0);
+      -ms-transform: translateY(-40px) scale(0);
+          transform: translateY(-40px) scale(0);
+  overflow: hidden;
+  -webkit-transition: -webkit-transform 0.8s ease;
+  transition: -webkit-transform 0.8s ease;
+  -o-transition: transform 0.8s ease;
+  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, -webkit-transform 0.8s ease;
+}
+
+.info-projects.active {
+  padding: 32px;
+  max-height: 232px;
+  -webkit-transform: translateY(0) scale(1);
+      -ms-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
 }
 
 .info-projects__list {
@@ -339,6 +380,25 @@ body.locked {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 24px;
+  max-height: 170px;
+  overflow-y: auto;
+  scrollbar-color: #9C52E0 #F2C94C;
+  scrollbar-width: thin;
+}
+
+.info-projects__list::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 12px;
+}
+
+.info-projects__list::-webkit-scrollbar-track {
+  background: #F2C94C;
+  border-radius: 12px;
+}
+
+.info-projects__list::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: #9C52E0;
 }
 
 .info-projects__item {
@@ -861,6 +921,11 @@ body.locked {
           flex-grow: 0;
   -ms-flex-negative: 1;
       flex-shrink: 1;
+}
+
+.info-projects__wrapper {
+  grid-column: span 6;
+  height: 0;
 }
 
 .orange {
